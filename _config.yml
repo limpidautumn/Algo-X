@@ -14,8 +14,7 @@ timezone: Asia/Shanghai
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 # url: https://algo-x.cn
-# url: https://taoran-01.github.io/Algo-X
-url: https://preview.algo-x.cn
+url: https://limpidautumn.github.io/algox-archive/
 permalink: articles/:title/
 permalink_defaults:
 pretty_urls:

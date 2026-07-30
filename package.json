@@ -6,8 +6,7 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server",
-    "postinstall": "node myScripts/postinstall.js"
+    "server": "hexo server"
   },
   "hexo": {
     "version": "8.1.2"

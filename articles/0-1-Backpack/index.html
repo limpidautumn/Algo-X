@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar_round.png">
-  <link rel="icon" href="/img/avatar_round.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/algox-archive/img/avatar_round.png">
+  <link rel="icon" href="/algox-archive/img/avatar_round.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,18 +22,18 @@
     <meta name="description" content="知识前置你需要知道DP是什么东西，同时你需要背过包。  题目描述李华有一个背包，他想往背包里放一些东西，使得价值最大。李华的背包有容量限制，所以他并不能装下所有的东西，也就说有一些东西需要被舍弃掉。有$n$件物品和一个容量为$m$的背包，第$i$件物品的重量为$w_i$，价值为$v_i$。求选若干物品放入背包，背包内物品价值总和最大值。满足$w_i&gt;0$。  暴力算法不难想到，可以暴力枚举">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0-1背包问题">
-<meta property="og:url" content="https://preview.algo-x.cn/articles/0-1-Backpack/index.html">
+<meta property="og:url" content="https://limpidautumn.github.io/algox-archive/articles/0-1-Backpack/index.html">
 <meta property="og:site_name" content="Algo-X.cn">
 <meta property="og:description" content="知识前置你需要知道DP是什么东西，同时你需要背过包。  题目描述李华有一个背包，他想往背包里放一些东西，使得价值最大。李华的背包有容量限制，所以他并不能装下所有的东西，也就说有一些东西需要被舍弃掉。有$n$件物品和一个容量为$m$的背包，第$i$件物品的重量为$w_i$，价值为$v_i$。求选若干物品放入背包，背包内物品价值总和最大值。满足$w_i&gt;0$。  暴力算法不难想到，可以暴力枚举">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://preview.algo-x.cn/img/16-01.jpg">
-<meta property="og:image" content="https://preview.algo-x.cn/img/16-02.jpg">
-<meta property="og:image" content="https://preview.algo-x.cn/img/16-03.jpg">
+<meta property="og:image" content="https://limpidautumn.github.io/algox-archive/img/16-01.jpg">
+<meta property="og:image" content="https://limpidautumn.github.io/algox-archive/img/16-02.jpg">
+<meta property="og:image" content="https://limpidautumn.github.io/algox-archive/img/16-03.jpg">
 <meta property="article:published_time" content="2024-03-06T15:10:50.000Z">
-<meta property="article:modified_time" content="2025-03-27T08:11:18.589Z">
+<meta property="article:modified_time" content="2026-07-29T11:09:17.311Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://preview.algo-x.cn/img/16-01.jpg">
+<meta name="twitter:image" content="https://limpidautumn.github.io/algox-archive/img/16-01.jpg">
   
   
   
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/algox-archive/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/algox-archive/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/algox-archive/css/highlight-dark.css" />
   
 
 
@@ -75,20 +75,20 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"preview.algo-x.cn","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":75,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"limpidautumn.github.io","root":"/algox-archive/","version":"1.9.9","typing":{"enable":true,"typeSpeed":75,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/algox-archive/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/algox-archive/js/utils.js" ></script>
+  <script  src="/algox-archive/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 
 <body>
@@ -100,7 +100,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/algox-archive/">
       <strong>Algo-X.cn</strong>
     </a>
 
@@ -110,7 +110,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -119,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/algox-archive/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/articles/" target="_self">
+              <a class="nav-link" href="/algox-archive/articles/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>文章</span>
               </a>
@@ -143,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/apps/errata/" target="_self">
+              <a class="nav-link" href="/algox-archive/apps/errata/" target="_self">
                 <i class="iconfont icon-bug"></i>
                 <span>勘误表</span>
               </a>
@@ -155,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/algox-archive/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -167,7 +167,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/algox-archive/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -179,7 +179,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/apps/" target="_self">
+              <a class="nav-link" href="/algox-archive/apps/" target="_self">
                 <i class="iconfont icon-briefcase"></i>
                 <span>应用</span>
               </a>
@@ -191,7 +191,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
+              <a class="nav-link" href="/algox-archive/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -203,7 +203,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/algox-archive/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -230,10 +230,155 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/articles/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>文章</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/apps/errata/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-bug"></i>
+                  <span>勘误表</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/apps/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-briefcase"></i>
+                  <span>应用</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/algox-archive/img/background.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -262,7 +407,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.6k 字
         
       </span>
     
@@ -273,7 +418,7 @@
         
         
         
-          10 分钟
+          22 分钟
         
       </span>
     
@@ -290,6 +435,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -315,7 +462,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月27日 下午
+                    本文最后更新于 2026年7月29日 晚上
                   
                 
               </p>
@@ -326,7 +473,7 @@
                 <hr>
 <h3 id="知识前置"><a href="#知识前置" class="headerlink" title="知识前置"></a>知识前置</h3><p>你需要知道DP是<a href="/2024/03/05/Dynamic-Programming/">什么东西</a>，同时你需要背过包。</p>
 <hr>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>李华有一个背包，他想往背包里放一些东西，使得价值最大。李华的背包有容量限制，所以他并不能装下所有的东西，也就说有一些东西需要被舍弃掉。<br><img src="../../img/16-01.jpg" srcset="/img/loading.gif" lazyload alt="16-01" style="zoom:75%;" /><br>有$n$件物品和一个容量为$m$的背包，第$i$件物品的重量为$w_i$，价值为$v_i$。求选若干物品放入背包，背包内物品价值总和最大值。满足$w_i&gt;0$。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>李华有一个背包，他想往背包里放一些东西，使得价值最大。李华的背包有容量限制，所以他并不能装下所有的东西，也就说有一些东西需要被舍弃掉。<br><img src="../../img/16-01.jpg" srcset="/algox-archive/img/loading.gif" lazyload alt="16-01" style="zoom:75%;" /><br>有$n$件物品和一个容量为$m$的背包，第$i$件物品的重量为$w_i$，价值为$v_i$。求选若干物品放入背包，背包内物品价值总和最大值。满足$w_i&gt;0$。</p>
 <hr>
 <h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>不难想到，可以暴力枚举每一件物品是否放置。对于每一种合法的物品选取方案的价值总和求最大值。时间复杂度$O(2^n)$。<br>在一秒内，这种算法最多只能过$n\le26$的数据，然后挂了。</p>
 <p>容易想到，可以删去那些价值为$0$或重量超过背包容量的物体。但优化效果不显著，该挂的分还是得挂。</p>
@@ -343,7 +490,7 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// w[N], v[N], f[N][M];</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) &#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=m; ++j) &#123;<br>		f[i][j]=f[i<span class="hljs-number">-1</span>][j];<br>		<span class="hljs-keyword">if</span> (j&gt;=w[i]) f[i][j]=<span class="hljs-built_in">max</span>(f[i][j], f[i<span class="hljs-number">-1</span>][j-w[i]]+v[i]);<br>	&#125;<br>&#125;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, f[n][m]);<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="滚动数组优化"><a href="#滚动数组优化" class="headerlink" title="滚动数组优化"></a>滚动数组优化</h3><p>将状态转移中的$f$数组画出来，如图所示。<br><img src="../../img/16-02.jpg" srcset="/img/loading.gif" lazyload alt="16-02" style="zoom:75%;" /><br>可以发现，对于任意一个物品，其状态都是上一行转移过来的，且在正上方或上一行的左方。<br>于是我们可以删去一维，只保留一维数组，存储上一个物体的状态，如图所示。<br><img src="../../img/16-03.jpg" srcset="/img/loading.gif" lazyload alt="16-03" style="zoom:75%;" /><br>注意，此时循环必须从右侧开始，因为状态转移依赖左边的数据，复写掉就找不回来了。</p>
+<h3 id="滚动数组优化"><a href="#滚动数组优化" class="headerlink" title="滚动数组优化"></a>滚动数组优化</h3><p>将状态转移中的$f$数组画出来，如图所示。<br><img src="../../img/16-02.jpg" srcset="/algox-archive/img/loading.gif" lazyload alt="16-02" style="zoom:75%;" /><br>可以发现，对于任意一个物品，其状态都是上一行转移过来的，且在正上方或上一行的左方。<br>于是我们可以删去一维，只保留一维数组，存储上一个物体的状态，如图所示。<br><img src="../../img/16-03.jpg" srcset="/algox-archive/img/loading.gif" lazyload alt="16-03" style="zoom:75%;" /><br>注意，此时循环必须从右侧开始，因为状态转移依赖左边的数据，复写掉就找不回来了。</p>
 <p>此时$f[j]&#x3D;<br>\begin{cases}<br>f[j],&amp;j&lt;v[i]\\<br>max{f[j],\ f[j-w[i]]+v[i]},&amp;j\ge v[i]<br>\end{cases}$</p>
 <hr>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// w[N], v[N], f[M];</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) &#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=m; j&gt;=<span class="hljs-number">1</span>; --j) &#123;<br>		<span class="hljs-keyword">if</span> (j&gt;=w[i]) f[j]=<span class="hljs-built_in">max</span>(f[j], f[j-w[i]]+v[i]);<br>	&#125;<br>&#125;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, f[m]);<br></code></pre></td></tr></table></figure>
@@ -369,12 +516,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/algox-archive/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/algox-archive/categories/%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
 
@@ -397,7 +544,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>0-1背包问题</div>
-      <div>https://preview.algo-x.cn/articles/0-1-Backpack/</div>
+      <div>https://limpidautumn.github.io/algox-archive/articles/0-1-Backpack/</div>
     </div>
     <div class="license-meta">
       
@@ -415,7 +562,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年3月27日</div>
+          <div>2026年7月29日</div>
         </div>
       
       
@@ -452,7 +599,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/articles/Dynamic-Programming-with-Root-Replacement/" title="换根DP">
+                      <a href="/algox-archive/articles/Dynamic-Programming-with-Root-Replacement/" title="换根DP">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">换根DP</span>
                         <span class="visible-mobile">上一篇</span>
@@ -462,7 +609,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/articles/Solution-of-AT-dp-l/" title="AT_dp_l 题解">
+                      <a href="/algox-archive/articles/Solution-of-AT-dp-l/" title="AT_dp_l 题解">
                         <span class="hidden-mobile">AT_dp_l 题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -597,8 +744,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/algox-archive/js/events.js" ></script>
+<script  src="/algox-archive/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -620,7 +767,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/algox-archive/js/img-lazyload.js" ></script>
   
 
 
@@ -634,7 +781,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -645,10 +848,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -660,6 +869,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -762,7 +973,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/algox-archive/js/local-search.js" ></script>
 
 
 
@@ -770,7 +981,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/algox-archive/js/boot.js" ></script>
 
 
   

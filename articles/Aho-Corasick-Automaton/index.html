@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar_round.png">
-  <link rel="icon" href="/img/avatar_round.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/algox-archive/img/avatar_round.png">
+  <link rel="icon" href="/algox-archive/img/avatar_round.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,14 +22,14 @@
     <meta name="description" content="知识前置DFA请看上一篇文章有限状态自动机，或前往OI-Wiki。 Trie请看上上篇文章Trie，或前往OI-Wiki。 KMP算法一个在字符串中查找子串的算法，只能有单一模式串。可以尝试理解破碎的笔记，或前往OI-Wiki。  写在前面OI-Wiki上的AC自动机讲解得十分全面，还有动图，建议去看一下。  算法定义AC自动机，全称Aho-Corasick Automaton，可用于统计和排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AC自动机">
-<meta property="og:url" content="https://preview.algo-x.cn/articles/Aho-Corasick-Automaton/index.html">
+<meta property="og:url" content="https://limpidautumn.github.io/algox-archive/articles/Aho-Corasick-Automaton/index.html">
 <meta property="og:site_name" content="Algo-X.cn">
 <meta property="og:description" content="知识前置DFA请看上一篇文章有限状态自动机，或前往OI-Wiki。 Trie请看上上篇文章Trie，或前往OI-Wiki。 KMP算法一个在字符串中查找子串的算法，只能有单一模式串。可以尝试理解破碎的笔记，或前往OI-Wiki。  写在前面OI-Wiki上的AC自动机讲解得十分全面，还有动图，建议去看一下。  算法定义AC自动机，全称Aho-Corasick Automaton，可用于统计和排序">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://oi-wiki.org/string/images/ac-automaton4.png">
 <meta property="og:image" content="https://oi-wiki.org/string/images/ac-automaton1.png">
 <meta property="article:published_time" content="2024-04-18T14:25:29.000Z">
-<meta property="article:modified_time" content="2025-03-27T08:11:18.589Z">
+<meta property="article:modified_time" content="2026-07-29T11:09:17.315Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://oi-wiki.org/string/images/ac-automaton4.png">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/algox-archive/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/algox-archive/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/algox-archive/css/highlight-dark.css" />
   
 
 
@@ -74,20 +74,20 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"preview.algo-x.cn","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":75,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"limpidautumn.github.io","root":"/algox-archive/","version":"1.9.9","typing":{"enable":true,"typeSpeed":75,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/algox-archive/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/algox-archive/js/utils.js" ></script>
+  <script  src="/algox-archive/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 
 <body>
@@ -99,7 +99,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/algox-archive/">
       <strong>Algo-X.cn</strong>
     </a>
 
@@ -109,7 +109,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -118,7 +118,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/algox-archive/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/articles/" target="_self">
+              <a class="nav-link" href="/algox-archive/articles/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>文章</span>
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/apps/errata/" target="_self">
+              <a class="nav-link" href="/algox-archive/apps/errata/" target="_self">
                 <i class="iconfont icon-bug"></i>
                 <span>勘误表</span>
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/algox-archive/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/algox-archive/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -178,7 +178,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/apps/" target="_self">
+              <a class="nav-link" href="/algox-archive/apps/" target="_self">
                 <i class="iconfont icon-briefcase"></i>
                 <span>应用</span>
               </a>
@@ -190,7 +190,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
+              <a class="nav-link" href="/algox-archive/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -202,7 +202,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/algox-archive/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -229,10 +229,155 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/articles/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>文章</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/apps/errata/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-bug"></i>
+                  <span>勘误表</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/apps/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-briefcase"></i>
+                  <span>应用</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/algox-archive/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/algox-archive/img/background.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -261,7 +406,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          3.9k 字
         
       </span>
     
@@ -272,7 +417,7 @@
         
         
         
-          14 分钟
+          33 分钟
         
       </span>
     
@@ -289,6 +434,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -314,7 +461,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月27日 下午
+                    本文最后更新于 2026年7月29日 晚上
                   
                 
               </p>
@@ -338,7 +485,7 @@
 <h3 id="最朴素的算法实现"><a href="#最朴素的算法实现" class="headerlink" title="最朴素的算法实现"></a>最朴素的算法实现</h3><p>算法分为构造Trie、构造失配指针和模式匹配三步。</p>
 <h4 id="构造Trie"><a href="#构造Trie" class="headerlink" title="构造Trie"></a>构造Trie</h4><p>这个不必多说，正常的Trie树构造。<br>从根节点向下找，没有就构造新节点。</p>
 <h4 id="构造失配指针"><a href="#构造失配指针" class="headerlink" title="构造失配指针"></a>构造失配指针</h4><p>失配指针是在失配的时候用于跳转的指针，存储当前状态的最长后缀。这样在一个模式串失配时，自动机能立刻跳转到下一个可能匹配上的模式串。</p>
-<h5 id="最长后缀"><a href="#最长后缀" class="headerlink" title="最长后缀"></a>最长后缀</h5><p>举个OI-Wiki上的例子，对于模式串<code>i</code>，<code>he</code>，<code>his</code>，<code>she</code>，<code>hers</code>的$fail$指针构造：<br><img src="https://oi-wiki.org/string/images/ac-automaton4.png" srcset="/img/loading.gif" lazyload alt="26-01" style="zoom:75%;" /><br>以节点$6$为例：<br><img src="https://oi-wiki.org/string/images/ac-automaton1.png" srcset="/img/loading.gif" lazyload alt="26-02" style="zoom:75%;" /><br>假设文本串为<code>hishe</code>，在自动机上跑到节点$6$后，下一个字符是<code>h</code>，但字典树上没有连接节点，此时发生失配。<br><code>his</code>有两个非空后缀，按长度排序分别为<code>is</code>和<code>s</code>。从根节点开始，字典树上没有字符串<code>is</code>，但有<code>s</code>，所以自动机沿<code>fail[6]</code>跳转到节点$7$，这里有<code>his</code>的最长后缀<code>s</code>。<br>读入下一个字符<code>h</code>，节点$7$有<code>h</code>的边，继续运行。</p>
+<h5 id="最长后缀"><a href="#最长后缀" class="headerlink" title="最长后缀"></a>最长后缀</h5><p>举个OI-Wiki上的例子，对于模式串<code>i</code>，<code>he</code>，<code>his</code>，<code>she</code>，<code>hers</code>的$fail$指针构造：<br><img src="https://oi-wiki.org/string/images/ac-automaton4.png" srcset="/algox-archive/img/loading.gif" lazyload alt="26-01" style="zoom:75%;" /><br>以节点$6$为例：<br><img src="https://oi-wiki.org/string/images/ac-automaton1.png" srcset="/algox-archive/img/loading.gif" lazyload alt="26-02" style="zoom:75%;" /><br>假设文本串为<code>hishe</code>，在自动机上跑到节点$6$后，下一个字符是<code>h</code>，但字典树上没有连接节点，此时发生失配。<br><code>his</code>有两个非空后缀，按长度排序分别为<code>is</code>和<code>s</code>。从根节点开始，字典树上没有字符串<code>is</code>，但有<code>s</code>，所以自动机沿<code>fail[6]</code>跳转到节点$7$，这里有<code>his</code>的最长后缀<code>s</code>。<br>读入下一个字符<code>h</code>，节点$7$有<code>h</code>的边，继续运行。</p>
 <p>与KMP中的$next$指针类似，$fail$指针也是一个不断跳的过程。<br>跳最长后缀是因为可能匹配上，如果匹配不上还可以再跳最长后缀，避免模式串的遗漏。<br>如果字典树上没有后缀，<code>fail[i]</code>指向根节点$0$，代表这个字符没有再能匹配得上的。</p>
 <h5 id="构建方式"><a href="#构建方式" class="headerlink" title="构建方式"></a>构建方式</h5><p>对于字典树上的节点$u$构建<code>fail[u]</code>，父节点$p$，边$p\xrightarrow{c}u$，即<code>trie[fail[p]][c]</code>。假设小于$u$的深度的边都已求得。<br>失配指针的构建分为以下几种情况：<br>1.若<code>trie[fail[p]][c]</code>存在，则令<code>fail[u]=trie[fail[p]][c]</code>。表示当字典树有$fail_p\xrightarrow{c}fail_u$结构时，$u$的最长后缀就是父节点$p$的最长后缀加上字符$c$。<br>2.若<code>trie[fail[p]][c]</code>不存在，则按照“1”的方法继续判断<code>trie[fail[fail[p]]]</code>的存在性。<br>3.如果跳到根节点都没有，说明$trie$上的字符串$u$没有树上后缀，失配就得重新开始匹配，<code>fail[u]=根节点</code>。<br>特别地，<code>fail[p]</code>指向根节点与存在<code>trie[fail[p]][c]</code>不矛盾，表示$p$没有最长后缀，而$u$的最长后缀是最后一个字符。</p>
 <p>实际情况中，小于当前节点深度的节点的$fail$并未全部求得，此时需要BFS依次将子节点加入队列求$fail$指针。<br>另外建字典图，避免跳$fail$，直接指向失配节点。<br>这地方我也讲不明白，请前往<a target="_blank" rel="noopener" href="https://oi-wiki.org/string/ac-automaton/#%E5%AD%97%E5%85%B8%E6%A0%91%E4%B8%8E%E5%AD%97%E5%85%B8%E5%9B%BE">OI-Wiki</a>自行学习。</p>
@@ -366,12 +513,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/algox-archive/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/algox-archive/categories/%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
 
@@ -394,7 +541,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>AC自动机</div>
-      <div>https://preview.algo-x.cn/articles/Aho-Corasick-Automaton/</div>
+      <div>https://limpidautumn.github.io/algox-archive/articles/Aho-Corasick-Automaton/</div>
     </div>
     <div class="license-meta">
       
@@ -412,7 +559,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年3月27日</div>
+          <div>2026年7月29日</div>
         </div>
       
       
@@ -449,7 +596,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/articles/Suffix-Array/" title="后缀数组">
+                      <a href="/algox-archive/articles/Suffix-Array/" title="后缀数组">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">后缀数组</span>
                         <span class="visible-mobile">上一篇</span>
@@ -459,7 +606,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/articles/Deterministic-Finite-Automaton/" title="有限状态自动机">
+                      <a href="/algox-archive/articles/Deterministic-Finite-Automaton/" title="有限状态自动机">
                         <span class="hidden-mobile">有限状态自动机</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -594,8 +741,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/algox-archive/js/events.js" ></script>
+<script  src="/algox-archive/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -617,7 +764,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/algox-archive/js/img-lazyload.js" ></script>
   
 
 
@@ -631,7 +778,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -642,10 +845,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -657,6 +866,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -759,7 +970,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/algox-archive/js/local-search.js" ></script>
 
 
 
@@ -767,7 +978,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/algox-archive/js/boot.js" ></script>
 
 
   
